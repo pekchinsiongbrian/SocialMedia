@@ -1,0 +1,22 @@
+#page-container {
+    background-image: url('src/assets/sakura.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+#content-container {
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img, video {
+    max-width: 800px;
+}
+
+#buffer-zone {
+    height: 50px;
+}

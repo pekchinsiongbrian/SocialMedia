@@ -1,0 +1,13 @@
+<div id="page-container">
+    <div id="content-container">
+        <h1>{{postData.title}}</h1>
+        <h4>Posted on: {{postData.createdDate | date:'medium'}}</h4>
+        <h4>Viewers: {{postData.viewCount}}</h4>
+        <img *ngIf="postData.mediaType=='image/png' || postData.mediaType=='image/jpeg' || postData.mediaType=='image/jpg'" src="data:{{postData.mediaType}};base64,{{postData.resource}}">
+        <video *ngIf="postData.mediaType=='video/mp4'" src="data:{{postData.mediaType}};base64,{{postData.resource}}" controls></video>
+        <br>
+        <p *ngIf="!isLink()">{{postData.caption}}</p>
+        <a *ngIf="isLink()" href="{{postData.caption | absoluteUrl}}" target="_blank">{{postData.caption}}</a>
+        <span id="buffer-zone"></span>
+    </div>
+</div>

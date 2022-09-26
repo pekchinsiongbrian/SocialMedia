@@ -1,0 +1,44 @@
+<div id="authenticator">
+    <mat-card id="authenticator-content">
+        <mat-card-header>
+            <mat-card-title>
+                {{getStateText()}}
+            </mat-card-title>
+        </mat-card-header>
+        <div id="form-fields" *ngIf="isRegisterState()">
+            <input #registerName placeholder="Name">
+            <input #registerEmail placeholder="Email">
+            <input #registerPassword placeholder="Password" type="password">
+            <input #registerConfirmPassword placeholder="Confirm password" type="password">
+            <button (click)="onRegisterClick(
+                registerName, registerEmail, registerPassword, registerConfirmPassword
+            )" mat-flat-button color="warn">Register</button>
+        </div>
+        <div id="form-fields" *ngIf="isForgotPasswordState()">
+            <input #resetEmail placeholder="Email">
+            <button (click)="onForgotPasswordClick(resetEmail)" mat-flat-button color="warn">Reset</button>
+        </div>
+        <div id="form-fields" *ngIf="isResetPasswordState()">
+            <input #emailInput placeholder="Email">
+            <input #oldPasswordInput placeholder="Old Password" type="password">
+            <input #newPasswordInput placeholder="New Password" type="password">
+            <input #confirmNewPasswordInput placeholder="Confirm New Password" type="password">
+            <button (click)="onResetPasswordClick(
+                emailInput, oldPasswordInput, newPasswordInput, confirmNewPasswordInput
+            )" mat-flat-button color="warn">Reset Password</button>
+        </div>
+        <div id="form-fields" *ngIf="isLoginState()">
+            <input #loginEmail placeholder="Email">
+            <input #loginPassword placeholder="Password" type="password">
+            <button (click)="onLogin(
+                loginEmail, loginPassword
+            )" mat-flat-button color="warn">Login</button>
+        </div>
+        <mat-card-actions align="end">
+            <button mat-flat-button (click)="onForgotPassword()">Forgot password</button>
+            <button mat-flat-button (click)="onResetPassword()">Reset password</button>
+            <button mat-flat-button (click)="onCreateAccount()">Create account</button>
+            <button mat-flat-button (click)="onLoginClick()">Login</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,33 @@
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#img {
+    background: url('src/assets/sakura.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+}
+
+#post-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+}
+
+#postfeed {
+    max-width: 500px;
+    padding-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#fetch-more:hover {
+    box-shadow: 2px 2px 4px black;
+}

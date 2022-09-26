@@ -1,0 +1,25 @@
+.action-item {
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+#content {
+    margin-left: 15px;
+}
+
+#post-card {
+    margin-bottom: 5px;
+}
+
+#post-card:hover {
+    cursor: pointer;
+    background-color: rgb(250, 250, 250);
+}
+
+mat-card-actions {
+    text-align: right;
+}
+
+#media {
+    width: 100%;
+}

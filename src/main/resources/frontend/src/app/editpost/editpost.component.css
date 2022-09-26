@@ -1,0 +1,59 @@
+#form-container {
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('src/assets/sakura.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#title-and-caption {
+    display: flex;
+    flex-direction: column;
+}
+
+#photo-upload, #video-upload {
+    display: none;
+}
+
+textarea {
+    font-size: 14px;
+    width: 495px;
+    min-height: 200px;
+    border: 1px solid grey;
+    outline: none;
+}
+
+#bottom-section {
+    margin-top: 50px;
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 300px;
+    margin-left: 200px;
+}
+
+#post-preview {
+    text-align: right;
+    margin-top: 15px;
+}
+
+#cancel-media {
+    padding-bottom: 50px;
+}
+
+#cancel-media:hover {
+    cursor: pointer;
+}
+
+#post-preview-img, #post-preview-vid {
+    object-fit: cover;
+    object-position: center;
+    width: 80px;
+    height: 70px;
+    border-radius: 15px;
+    border: 1px dotted orange;
+}

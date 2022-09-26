@@ -1,0 +1,23 @@
+<mat-card id="post-card">
+    <div (click)="displayPost()">
+        <mat-card-header>
+            <mat-card-title>{{postData.title}}</mat-card-title>
+            <mat-card-subtitle>Posted on: {{postData.createdDate | date:'medium'}}</mat-card-subtitle>
+            <mat-card-subtitle>Viewers: {{postData.viewCount}}</mat-card-subtitle>
+        </mat-card-header>
+        <div id="content">
+            <img id="media" *ngIf="postData.mediaType=='image/png' || postData.mediaType=='image/jpeg' || postData.mediaType=='image/jpg'" mat-card-image src="data:{{postData.mediaType}};base64,{{postData.resource}}">
+            <video id="media" *ngIf="postData.mediaType=='video/mp4'" controls src="data:{{postData.mediaType}};base64,{{postData.resource}}"></video>
+            <mat-card-content *ngIf="!isLink()">
+                {{postData.caption}}
+            </mat-card-content>
+            <mat-card-content *ngIf="isLink()">
+                <a *ngIf="isLink()" href="{{postData.caption | absoluteUrl}}" target="_blank">{{postData.caption}}</a>
+            </mat-card-content>
+        </div>
+    </div>
+    <mat-card-actions>
+        <mat-icon *ngIf="showIcons()" (click)="editPost()" class="action-item" color="warn">edit</mat-icon>
+        <mat-icon *ngIf="showIcons()" (click)="deletePost()" class="action-item" color="warn">delete</mat-icon>
+    </mat-card-actions>
+</mat-card>

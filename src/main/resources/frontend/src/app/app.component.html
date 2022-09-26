@@ -1,0 +1,15 @@
+<div id="nav">
+    <div id="nav-content">
+        <div id="nav-left">
+            <div class="nav-items" (click)="homeClick()">My Social Space</div>
+            <div *ngIf="loggedIn()" class="nav-items" (click)="postsClick()">View Posts</div>
+            <div *ngIf="loggedIn() && isAdmin()" class="nav-items" (click)="manageUsers()">Manage Users</div>
+        </div>
+        <div id="nav-right">
+            <div *ngIf="loggedIn()">{{getRole()}}: {{getName()}}</div>
+            <div *ngIf="!loggedIn()" class="nav-items" (click)="loginClick()">Login</div>
+            <div *ngIf="loggedIn()" class="nav-items" (click)="logoutClick()">Logout</div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

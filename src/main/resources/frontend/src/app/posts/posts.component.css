@@ -1,0 +1,43 @@
+#create-post {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+#title-and-caption {
+    display: flex;
+    flex-direction: column;
+}
+
+#photo-upload, #video-upload {
+    display: none;
+}
+
+textarea {
+    font-size: 14px;
+    min-height: 200px;
+    border: 1px solid grey;
+    outline: none;
+}
+
+#post-preview {
+    text-align: right;
+    margin-top: 15px;
+}
+
+#cancel-media {
+    padding-bottom: 50px;
+}
+
+#cancel-media:hover {
+    cursor: pointer;
+}
+
+#post-preview-img, #post-preview-vid {
+    object-fit: cover;
+    object-position: center;
+    width: 80px;
+    height: 70px;
+    border-radius: 15px;
+    border: 1px dotted orange;
+}

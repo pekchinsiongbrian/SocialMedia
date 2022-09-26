@@ -1,0 +1,42 @@
+<div id="img"></div>
+<div id="content">
+    <h1>Manage Users</h1>
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>S/N</th>
+                <th>User Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Manage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let user of users; index as i'>
+                <td>{{i+1}}</td>
+                <td>{{user.id}}</td>
+                <td *ngIf="!isEditMode() || user.id!=userToEdit">{{user.name}}</td>
+                <td *ngIf="isEditMode() && user.id==userToEdit">
+                    <input #nameInput type="text" value="{{user.name}}">
+                </td>
+                <td>{{user.email}}</td>
+                <td>{{user.roles[0]['name'].substring(5)}}</td>
+                <td>
+                    <button *ngIf="!isEditMode() || user.id!=userToEdit" (click)="editUser(user.id)" mat-button color="warn">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button *ngIf="isEditMode() && user.id==userToEdit" (click)="saveChanges(user.id, user.name)" mat-button color="warn">
+                        <mat-icon>save</mat-icon>
+                    </button>
+                    <button *ngIf="isEditMode() && user.id==userToEdit" (click)="back()" mat-button color="warn">
+                        <mat-icon>undo</mat-icon>
+                    </button>
+                    <button *ngIf="!isSelf(user.id)" (click)="deleteUser(user.id)" mat-button color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

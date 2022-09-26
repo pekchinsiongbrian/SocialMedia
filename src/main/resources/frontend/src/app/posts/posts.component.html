@@ -1,0 +1,30 @@
+<mat-card id="create-post">
+    <mat-card-header>
+        <mat-card-title>Create Post</mat-card-title>
+    </mat-card-header>
+    <div id="title-and-caption">
+        <input #titleInput placeholder="Title (max 20 chars)" type="text">
+        <textarea #captionInput (keyup)="updateCharCount(captionInput)" placeholder="Type caption text (max 50 chars)..."></textarea>
+        <label [ngStyle]="{'color': charCount > 50 ? 'red' : 'black'}">{{charCount}} / 50</label>
+    </div>
+    <div id="post-preview">
+        <img *ngIf="selectImageFile != null" id="post-preview-img">
+        <video *ngIf="selectVideoFile != null" id="post-preview-vid" controls></video>
+        <mat-icon (click)="cancelMedia()" id="cancel-media" *ngIf="selectImageFile != null || selectVideoFile != null">cancel</mat-icon>
+    </div>
+    <mat-card-actions align="end">
+        <button mat-button color="warn">
+            <label>
+                <input #photoSelector (change)="onPhotoSelected(photoSelector)" id="photo-upload" type="file" accept="image/jpg, image/jpeg, image/png">
+                <mat-icon>insert_photo</mat-icon>
+            </label>
+        </button>
+        <button mat-button color="warn">
+            <label>
+                <input #videoSelector (change)="onVideoSelected(videoSelector)" id="video-upload" type="file" accept="video/mp4">
+                <mat-icon>video_library</mat-icon>
+            </label>
+        </button>
+        <button (click)="onPostClick(titleInput,captionInput)" mat-flat-button color="warn">Post</button>
+    </mat-card-actions>
+</mat-card>

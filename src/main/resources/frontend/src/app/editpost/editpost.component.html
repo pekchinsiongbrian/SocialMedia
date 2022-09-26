@@ -1,0 +1,29 @@
+<div id="form-container">
+    <h1>Edit Post</h1>
+    <div id="title-and-caption">
+        <input #titleInput type="text" value="{{postData.title}}">
+        <textarea #captionInput value="{{postData.caption}}"></textarea>
+    </div>
+    <div id="bottom-section">
+        <div id="post-preview">
+            <img *ngIf="selectImageFile != null" id="post-preview-img">
+            <video *ngIf="selectVideoFile != null" id="post-preview-vid" controls></video>
+            <mat-icon (click)="cancelMedia()" id="cancel-media" *ngIf="selectImageFile != null || selectVideoFile != null">cancel</mat-icon>
+        </div>
+        <mat-card-actions align="end">
+            <button mat-button color="warn">
+                <label>
+                    <input #photoSelector (change)="onPhotoSelected(photoSelector)" id="photo-upload" type="file" accept="image/jpg, image/jpeg, image/png">
+                    <mat-icon>insert_photo</mat-icon>
+                </label>
+            </button>
+            <button mat-button color="warn">
+                <label>
+                    <input #videoSelector (change)="onVideoSelected(videoSelector)" id="video-upload" type="file" accept="video/mp4">
+                    <mat-icon>video_library</mat-icon>
+                </label>
+            </button>
+            <button (click)="onPostClick(titleInput,captionInput)" mat-flat-button color="warn">Post</button>
+        </mat-card-actions>
+    </div>
+</div>

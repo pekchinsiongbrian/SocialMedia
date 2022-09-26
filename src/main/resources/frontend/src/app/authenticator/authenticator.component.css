@@ -1,0 +1,29 @@
+#authenticator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+#authenticator-content {
+    width: 100%;
+    padding: 20px;
+}
+
+button {
+    margin: 10px;
+}
+
+input {
+    width: 100%;
+    margin: 10px 0;
+    height: 20px;
+    border-radius: 5px;
+}
+
+#form-fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

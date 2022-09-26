@@ -1,0 +1,27 @@
+#home-page {
+    width: 100%;
+    height: 100%;
+}
+
+#home-page-sub {
+    width: 100%;
+    height: 100%;
+    background-image: url('src/assets/random.jpg');
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100%;
+}
+
+#left {
+    display: flex;
+    color: black;
+    text-align: right;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.mat-raised-button:hover {
+    box-shadow: 2px 2px 4px black;
+}
